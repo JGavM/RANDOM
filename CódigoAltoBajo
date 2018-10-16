@@ -1,78 +1,52 @@
+Scanner lee= new Scanner(System.in);
+Random rnd = new Random();
+int x;//random,
+int cont=6;//intentos,
+int y;//lee numero
 
-       
-
-   		 Scanner lee= new Scanner(System.in);
-  
-  		 Random rnd = new Random();
-  
- 		 int x,cont=6,y;
- 
-              
- 		 x = (int)(rnd.nextDouble() * 100.0);
-    
-    
-    
-do{
-            
-  
-             
-		  System.out.println("Dame numero");
-       
-         	 y=lee.nextInt();
-                
-              
- 	   if(y>x){
-
-                    
-               
-     			System.out.println("Alto");
-               
-     
-                  }
         
-       else if (y<x){
-           
-                   
-   			System.out.println("Bajo");
-                     
-   
-                    }
-                   
-               
-               
-  	if(y==x && cont!=6)
-{
-                   
-     
-                     System.out.println("Acertaste con el numero");
-                   
-     			  cont=0;
-                      
-			}
-                
- 	else
-  {
-                     
- 		cont--;
-                    
- 		System.out.println("Fallo");
-      
-                System.out.println("Te quedan "+cont+" intentos");
-                
+ 	x = (int)(rnd.nextDouble() * 10.0);
     
+      do{
+            System.out.println("Dame numero");
+       	    y=lee.nextInt();
+                
+              if(y>x)
+              {
+                  System.out.println("Alto");
+              }
+        
+              else if (y<x)
+              {
+ 
+                System.out.println("Bajo");
+              }
+                   
+                    
+  	        if(y==x && cont!=6)
+                  {
+                   
+                     System.out.println("Acertaste con el numero");
+                    cont=0;
+    
+			             }
+                
+ 	           else
+              {   
+ 		               cont--;
+                   System.out.println("Fallo");
+                   System.out.println("Te quedan "+cont+" intentos");
                  }
               
             
-  	if(cont==0)
-{
-                
-  		System.out.println("Lo lamento, tus intentos se han terminado");
-      
-       		 }
+  	         if(cont==0)
+             {
+                System.out.println("Lo lamento, tus intentos se han terminado");
+            
               
               
          
- 	}while(cont!=0);
+ 	        }while(cont!=0);
                   
         	
   
