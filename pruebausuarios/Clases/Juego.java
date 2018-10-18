@@ -5,17 +5,23 @@
  */
 package pruebausuarios.Clases;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Estudiante
  */
 public class Juego extends javax.swing.JFrame {
+    
 
-    /**
-     * Creates new form Juego
-     */
+    public int intentos = 3;
+    public int aleatorio = (int) (Math.random()*11);
+    public int numero = 0;
+    
     public Juego() {
         initComponents();
+        
+
     }
 
     /**
@@ -32,15 +38,21 @@ public class Juego extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtNumero = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnJuego = new javax.swing.JButton();
+        txtIntento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(750, 500));
         setMinimumSize(new java.awt.Dimension(750, 500));
-        setPreferredSize(new java.awt.Dimension(750, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(750, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(750, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(750, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(15, 96, 137));
@@ -53,24 +65,46 @@ public class Juego extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(25, 161, 229));
         jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(15, 96, 137));
-        jLabel2.setText("Intentos: 3");
+        jLabel2.setText("Intentos: ");
         jLabel2.setToolTipText("");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, 60));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 160, 60));
 
         jLabel4.setBackground(new java.awt.Color(25, 161, 229));
         jLabel4.setForeground(new java.awt.Color(25, 161, 229));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebausuarios/Imagenes/TextoJuego3.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 212, -1, 60));
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField1.setMaximumSize(new java.awt.Dimension(100, 28));
-        jTextField1.setMinimumSize(new java.awt.Dimension(100, 28));
-        jTextField1.setPreferredSize(new java.awt.Dimension(100, 28));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, -1, -1));
+        txtNumero.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtNumero.setMaximumSize(new java.awt.Dimension(100, 28));
+        txtNumero.setMinimumSize(new java.awt.Dimension(100, 28));
+        txtNumero.setPreferredSize(new java.awt.Dimension(100, 28));
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pruebausuarios/Imagenes/BotonJuego1.png"))); // NOI18N
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/pruebausuarios/Imagenes/TextoJuego1.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, -10, 700, 130));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/pruebausuarios/Imagenes/TextoJuego3.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 530, 60));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/pruebausuarios/Imagenes/TextoJuego2.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 480, 50));
+
+        btnJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacion/pruebausuarios/Imagenes/BotonJuego1.png"))); // NOI18N
+        btnJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJuegoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 300, 90));
+
+        txtIntento.setFont(new java.awt.Font("Felix Titling", 0, 24)); // NOI18N
+        txtIntento.setForeground(new java.awt.Color(15, 96, 137));
+        jPanel1.add(txtIntento, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 50, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,6 +119,42 @@ public class Juego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void btnJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJuegoActionPerformed
+                // TODO add your handling code here:
+        numero=Integer.parseInt(txtNumero.getText());
+        intentos--;
+        if(intentos>0){ 
+            if (numero==aleatorio){
+                this.setEnabled(false);
+                this.setVisible(false);
+               
+            }
+            else{
+                if(numero<aleatorio){
+                    JOptionPane.showMessageDialog(null, "Es muy bajo\nIntenta otra vez");
+                }
+                else{
+                   JOptionPane.showMessageDialog(null, "Es muy alto\nIntenta otra vez"); 
+                }
+            }
+            txtIntento.setText(String.valueOf(intentos));
+            txtNumero.setText("");
+        }
+        else{
+            this.setEnabled(false);
+            this.setVisible(false);
+            
+        }
+        
+    }  
+        
+        
+    }//GEN-LAST:event_btnJuegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,12 +192,16 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnJuego;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtIntento;
+    private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }
